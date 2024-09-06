@@ -63,10 +63,10 @@ void MyCutCallback::main()
 	cutSetPool = MaxBack(x_edge, n);
 
 	// o exato só será executado caso a heurística não encontre o corte	
-	// if (cutSetPool.empty() && depth <= 7) {
-	// 	cutSetPool = MinCut(x_edge, n);
-	// 	// cutSetPool = MultipleMinCut(x_edge, n);
-	// }
+	if (cutSetPool.empty() && depth <= 7) {
+		cutSetPool = MinCut(x_edge, n);
+		// cutSetPool = MultipleMinCut(x_edge, n);
+	}
 
 	/***************** Creating the constraints ***************/
 	if (!cutSetPool.empty()){

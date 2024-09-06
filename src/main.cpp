@@ -89,6 +89,11 @@ void STSP_Solve(Data *data, string instanceName, double ub)
     /************ Creating Cut Callback Object ************/
     MyCutCallback* cutCbk = new (env) MyCutCallback(env, x_ref, dimension); 
 	STSP.use(cutCbk);
+
+    #ifdef DEBUGGING
+        data->printMatrixDist();
+        auto cutSetPool = MinCut(data->getMatrixCost(), dimension);
+    #endif
     /******************************************************/
 
     /************ Creating Lazy Callback Object ***********/
